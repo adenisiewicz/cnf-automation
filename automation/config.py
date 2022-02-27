@@ -27,6 +27,10 @@ class Config:
     GLOBAL_CUSTOMER_ID = "customer_cnf"
     VSPFILE = "vsp/native_cnf_k8s_demo.zip"
 
+    ARTIFACT_FILE ="vsp/k8s-tcagen2-clampnode-master.yaml"
+    ARTIFACT_NAME = "clampnode"
+    ARTIFACT_TYPE = "DCAE_INVENTORY_BLUEPRINT"
+    
     PROFILE_NAME = "node-port-profile"
     PROFILE_SOURCE = PROFILE_NAME
     RELEASE_NAME = "rel-1"
