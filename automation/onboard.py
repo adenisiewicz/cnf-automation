@@ -153,6 +153,22 @@ def main():
                       vendor=vendor)
     service.add_resource(vnf)
     set_properties(service, vnf)
+    
+    art_file=Config.ARTIFACT_FILE
+    mypath = os.path.dirname(os.path.realpath(__file__))
+    art_path = os.path.join(mypath, art_file)
+
+    logger.info("******** Extract Artifact Data *******")
+    data = open(art_path,'rb').read()
+
+    logger.info("******** Upload Artifact *******")
+
+    if service.status == const.DRAFT:
+        service.add_artifact_to_vf(vnf_name=Config.VFNAME,
+                               artifact_type=Config.ARTIFACT_TYPE,
+                               artifact_name=Config.ARTIFACT_NAME,
+                               artifact=data)
+    
     service.checkin()
     service.onboard()
     check_distribution_status(service)
