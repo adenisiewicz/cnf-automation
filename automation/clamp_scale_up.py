@@ -63,7 +63,7 @@ class MyLoopInstance(LoopInstance):
                                targetType = 'VNF',
                                LOOP_name='test_ad_scale_up',
                                operation = "scale",
-                               data ="{'replica-count': '2'}")
+                               data ="{'replicaCount': '2'}")
         return data
 
 
