@@ -66,15 +66,42 @@ open class ConfigDeploySetup() : ResourceAssignmentProcessor() {
                 } else {
                     value = raRuntimeService.getInputValue("generic-vnf.vnf-id")
                     if (!value.isNullOrMissing()) {
-                        retValue = value.asText()
+                        val param = value.asText().split(",")
+                        val map = mutableMapOf<String, String>()
+                        for (p in param) {
+                            val sp = p.split(":")
+                            map.put(sp[0], sp[1])
+                        }
+                        if (map["i"] != null) {
+                            retValue = map["i"]
+                        } else {
+                            retValue = value.asText()
+                        }
                     }
                 }
             } else if (executionRequest.name == "replica-count") {
                 var value = raRuntimeService.getInputValue(executionRequest.name)
+                var valueFromEvent = raRuntimeService.getInputValue("generic-vnf.vnf-id")
                 retValue = "1"
+                var try_data = false
                 if (!value.isNullOrMissing()) {
                     retValue = value.asText()
+                } else if (!valueFromEvent.isNullOrMissing()) {
+                    val param = valueFromEvent.asText().split(",")
+                    val map = mutableMapOf<String, String>()
+                    for (p in param) {
+                        val sp = p.split(":")
+                        map.put(sp[0], sp[1])
+                    }
+                    if (map["c"] != null) {
+                        retValue = map["c"]
+                    } else {
+                        try_data = true
+                    }
                 } else {
+                    try_data = true
+                }
+                if (try_data) {
                     value = raRuntimeService.getInputValue("data")
                     if (!value.isNullOrMissing()) {
                         if (value["replicaCount"] != null) {
