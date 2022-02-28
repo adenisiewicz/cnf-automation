@@ -1,1 +1,39 @@
-
+{
+  "name": "{{ name }}",
+  "configurationsJson": {
+    "tca.policy": {
+      "domain": "measurementsForVfScaling",
+      "metricsPerEventName": [
+        {
+          "policyScope": "DCAE",
+          "thresholds": [
+         {
+            "version": "1.0.2",
+            "severity": "MAJOR",
+            "thresholdValue": 300,
+            "closedLoopEventStatus": "ONSET",
+            "closedLoopControlName": "{{ LOOP_name_down }}",
+            "direction": "LESS_OR_EQUAL",
+            "fieldPath": "$.event.measurementsForVfScalingFields.vNicPerformanceArray[*].receivedTotalPacketsDelta"
+          },
+          {
+            "version": "1.0.2",
+            "severity": "MAJOR",
+            "thresholdValue": 700,
+            "closedLoopEventStatus": "ONSET",
+            "closedLoopControlName": "{{ LOOP_name_up }}",
+            "direction": "GREATER_OR_EQUAL",
+            "fieldPath": "$.event.measurementsForVfScalingFields.vNicPerformanceArray[*].receivedTotalPacketsDelta"
+          }
+          ],
+          "eventName": "vFirewallBroadcastPackets",
+          "policyVersion": "v0.0.1",
+          "controlLoopSchemaType": "{{ controlLoopSchemaType }}",
+          "policyName": "{{ policyName }}"
+        }
+      ]
+    }
+  },
+  "pdpGroup": "defaultGroup",
+  "pdpSubgroup": "xacml"
+}
