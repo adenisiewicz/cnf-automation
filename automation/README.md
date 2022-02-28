@@ -30,5 +30,8 @@
 7. Run script `python create_cloud_regions.py` in order to create **k8s or openstack cloud region**
 8. Onboard CNF `python onboard.py`
 9. Instantiate CNF `python instantiate.py`
-10. Once test is done, CNF service instance can be deleted with `python delete.py` command
-
+10. Deploy 3 closed loops e.g. `python clamp_scale_start.py`
+11. Edit vnf-id in `onset_event` and `onset_event_start`
+12. Initialize k8s plugin by `onset_start.sh`
+13. Scale using script `onset.sh`
+14. Once test is done, CNF service instance can be deleted with `python delete.py` command
