@@ -34,4 +34,5 @@
 11. Edit vnf-id in `onset_event` and `onset_event_start`
 12. Initialize k8s plugin by `onset_start.sh`
 13. Scale using script `onset.sh`
-14. Once test is done, CNF service instance can be deleted with `python delete.py` command
+14. Check `kubectl get pods -n test-cnf`
+15. Once test is done, CNF service instance can be deleted with `python delete.py` command
