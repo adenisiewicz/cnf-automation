@@ -70,7 +70,9 @@ open class ConfigDeploySetup() : ResourceAssignmentProcessor() {
                         val map = mutableMapOf<String, String>()
                         for (p in param) {
                             val sp = p.split(":")
-                            map.put(sp[0], sp[1])
+                            if (sp.size == 2) {
+                                map.put(sp[0], sp[1])
+                            }
                         }
                         if (map["i"] != null) {
                             retValue = map["i"]
@@ -91,7 +93,9 @@ open class ConfigDeploySetup() : ResourceAssignmentProcessor() {
                     val map = mutableMapOf<String, String>()
                     for (p in param) {
                         val sp = p.split(":")
-                        map.put(sp[0], sp[1])
+                        if (sp.size == 2) {
+                            map.put(sp[0], sp[1])
+                        }
                     }
                     if (map["c"] != null) {
                         retValue = map["c"]
