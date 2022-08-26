@@ -1,0 +1,18 @@
+{
+  "closedLoopEventClient": "sf01c1454082f4cc49c6a7ab19168abb9-dcae-tcagen2",
+  "policyVersion": "v0.0.1",
+  "policyName": "DCAE.Config_tca-hi-lo",
+  "policyScope": "DCAE",
+  "target_type": "VNF",
+  "target": "generic-vnf.vnf-id",
+  "AAI": {
+    "generic-vnf.vnf-id": "785caffa-e7f5-4c81-a76b-e287b1b315ef"
+  },
+  "closedLoopAlarmStart": 1656339372961307,
+  "closedLoopEventStatus": "ONSET",
+  "closedLoopControlName": "test_ad_scale_down",
+  "version": "1.0.2",
+  "requestID": "367b95f8-dc1f-4b14-a928-be5a8dfe3b3a",
+  "from": "DCAE"
+}
+
